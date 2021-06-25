@@ -4,7 +4,6 @@ import torch
 # Model
 model = torch.hub.load('yolov5', 'custom', path='best.pt', source='local')
 model.conf = 0.95
-model.iou = 0.8
 
 # Webcam
 capture = cv2.VideoCapture(0)
