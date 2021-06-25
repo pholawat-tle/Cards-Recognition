@@ -1,0 +1,12 @@
+# Virtual Environment
+venv
+
+# Model & Weights
+yolov5
+*.pt
+
+# Run Results
+runs
+
+# VS Code Setting
+.vscode
