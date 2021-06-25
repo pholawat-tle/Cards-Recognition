@@ -33,7 +33,7 @@ while True:
     width, height = img.size  # Image Size
 
     # Inference
-    results = model(img)  # includes NMS
+    results = model(img, size=max(width, height))  # includes NMS
 
     cards = results.pandas().xyxy[0].drop_duplicates(
         subset=['name']).to_dict(orient="records")
@@ -43,6 +43,7 @@ while True:
     elif(len(cards) == 1):
         print("1 Card is detected")
     else:
+        results.save()
         unitDistance = abs(cards[0]['xmin'] - cards[0]['xmax'])
         hands = []
 

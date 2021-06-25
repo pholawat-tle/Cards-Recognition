@@ -3,7 +3,7 @@ import torch
 
 # Model
 model = torch.hub.load('yolov5', 'custom', path='best.pt', source='local')
-model.conf = 0.95
+model.conf = 0.8
 
 # Webcam
 capture = cv2.VideoCapture(0)
@@ -17,12 +17,15 @@ while capture.isOpened():
     if ret:
         cv2.imshow("Video Feed", img)  # Display video to the screen
 
+        h, w, c = img.shape
+        print(h, w, c)
+
         if cv2.waitKey(25) & 0xFF == ord('q'):  # Exit if 'q' is pressed
             break
 
         # Inference
 
-        results = model(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+        results = model(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), size=max(h, w))
         # Convert the captured frame into RGB and feed it into the model
 
         # Result
