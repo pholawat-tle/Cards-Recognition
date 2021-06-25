@@ -19,6 +19,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#usage">Features</a></li>
   </ol>
 </details>
 
@@ -57,3 +58,13 @@ To get a local copy up and running follow these simple steps.
 ## Usage
 
 To run the application on webcam, run the command `python webcam.py` inside terminal.
+
+## Features
+
+### Hand Detection <sub><sup>\*</sup></sub>
+
+The application can seperate cards detected into small hands using the distance between the bounding box of each card.
+
+_The position and angle of the camera has a huge influence on the accuracy of this feature._
+<img src="./.github/img/hand-detection.png" >
+<sub><sup>\*Only in image.py</sup></sub>
